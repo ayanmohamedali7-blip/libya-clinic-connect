@@ -3,8 +3,9 @@ import clinicDefault from '@/assets/clinic-default.jpg';
 import doctorPhoto from '@/assets/doctor.jpg';
 import heroPhoto from '@/assets/healthcare-hero.jpg';
 export { clinicPhoto, clinicDefault, doctorPhoto, heroPhoto };
+export const defaultClinic = { id: 'hayat', name: 'مصحة الحياة', en: 'Al Hayat Clinic', specialty: 'طب عام وتخصصات متعددة', city: 'طرابلس، حي الأندلس', rating: '4.8', reviews: 128, distance: '1.2', image: clinicPhoto, category: 'all' };
 export const clinics = [
- { id: 'hayat', name: 'مصحة الحياة', en: 'Al Hayat Clinic', specialty: 'طب عام وتخصصات متعددة', city: 'طرابلس، حي الأندلس', rating: '4.8', reviews: 128, distance: '1.2', image: clinicPhoto, category: 'all' },
+ defaultClinic,
  { id: 'noor', name: 'مصحة النور التخصصية', en: 'Al Noor Medical Center', specialty: 'طب الأطفال والنساء والولادة', city: 'طرابلس، بن عاشور', rating: '4.7', reviews: 96, distance: '2.4', image: clinicPhoto, category: 'children' },
  { id: 'smile', name: 'عيادة الابتسامة', en: 'Smile Dental Clinic', specialty: 'طب وجراحة الأسنان', city: 'طرابلس، قرقارش', rating: '4.9', reviews: 84, distance: '3.1', image: clinicDefault, category: 'dental' },
  { id: 'lab', name: 'مختبر الشفاء', en: 'Al Shifa Laboratory', specialty: 'تحاليل طبية ومختبرات', city: 'طرابلس، الفرناج', rating: '4.6', reviews: 72, distance: '4.0', image: clinicDefault, category: 'lab' },
