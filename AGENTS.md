@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## App architecture
+- Keep prototype data and interaction state in browser-safe React modules; this project intentionally has no backend.
+- Use a shared Mawaidi shell and reusable healthcare UI primitives for patient and doctor experiences to maintain visual consistency.
+- Patient screens use the index and /$screen routes, and doctor screens use /doctor/$screen; route parameters select known prototype views and leaf heads provide screen-specific metadata.
