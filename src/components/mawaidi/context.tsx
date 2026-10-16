@@ -16,6 +16,9 @@ function usePrototypeState(){
  const addPayment=(label:string,amount:string)=>setPayments(p=>[{id:Date.now(),label,amount,date:'16 أكتوبر 2026'},...p]);
  return {lang,setLang,booking,setBooking,booked,setBooked,selectedClinic,setSelectedClinic,family,setFamily,familyAdded,setFamilyAdded,aiSub,setAiSub,trialUsed,setTrialUsed,featuredSub,setFeaturedSub,payments,addPayment};
 }
-const PrototypeContext=createContext<ReturnType<typeof usePrototypeState>|null>(null);
+type State=ReturnType<typeof usePrototypeState>;
+// Keep one context instance across hot reloads so provider and consumers always match.
+const store=globalThis as typeof globalThis&{__mawaidiContext?:React.Context<State|null>};
+const PrototypeContext=store.__mawaidiContext??=createContext<State|null>(null);
 export function PrototypeProvider({children}:{children:ReactNode}){const state=usePrototypeState();return <PrototypeContext.Provider value={state}>{children}</PrototypeContext.Provider>;}
 export function usePrototype(){const state=useContext(PrototypeContext);if(!state)throw new Error('PrototypeProvider is required');return state;}
