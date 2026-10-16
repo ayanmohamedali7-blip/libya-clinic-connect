@@ -11,7 +11,7 @@ export function EmergencyCare({ recommendation, onReset }: { recommendation: Car
  }, []);
  return <section aria-label="شاشة الطوارئ" className="mx-auto max-w-3xl border-t-4 border-coral py-6">
   <div className="mb-5 flex items-center gap-3 text-coral"><ShieldAlert size={36} aria-hidden="true"/><span className="font-medium">لا تنتظر موعداً</span></div>
-  <h2 ref={heading} tabIndex={-1} className="text-2xl font-semibold outline-none">اطلب رعاية طارئة الآن</h2>
+  <h2 ref={heading} tabIndex={-1} className="text-2xl font-semibold outline-none">توجّه للطوارئ فوراً</h2>
   <p dir="ltr" className="mt-2 text-right text-xs text-muted-foreground">Seek emergency care now</p>
   <p className="mt-5 text-sm leading-7">وصفك يتضمن علامات قد تكون خطيرة. اطلب خدمة الإسعاف المحلية الآن، أو توجّه فوراً لأقرب قسم طوارئ بمساعدة شخص آخر.</p>
   <div className="mt-6 flex items-start gap-3 border-y border-border py-5"><Hospital className="shrink-0 text-coral" size={24}/><div><h3>الأولوية للطوارئ، وليس للحجز</h3><p className="mt-2 text-sm leading-7">{recommendation.nextStep}</p></div></div>
