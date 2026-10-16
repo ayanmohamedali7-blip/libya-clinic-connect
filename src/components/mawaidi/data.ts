@@ -10,6 +10,20 @@ export const clinics = [
  { id: 'smile', name: 'عيادة الابتسامة', en: 'Smile Dental Clinic', specialty: 'طب وجراحة الأسنان', city: 'طرابلس، قرقارش', rating: '4.9', reviews: 84, distance: '3.1', image: clinicDefault, category: 'dental' },
  { id: 'lab', name: 'مختبر الشفاء', en: 'Al Shifa Laboratory', specialty: 'تحاليل طبية ومختبرات', city: 'طرابلس، الفرناج', rating: '4.6', reviews: 72, distance: '4.0', image: clinicDefault, category: 'lab' },
 ];
-export const screenNames: Record<string,string> = { care:'اختيار وجهة الرعاية', home:'الرئيسية', clinics:'المصحات', clinic:'مصحة الحياة', doctor:'الطبيب', confirm:'تأكيد الموعد', appointments:'مواعيدي', prescriptions:'الوصفات الطبية', reminders:'التذكيرات', profile:'الملف الشخصي', family:'إضافة فرد من العائلة', welcome:'مرحباً بك', queue:'طابور العيادة', account:'حسابي', settings:'الإعدادات', information:'المعلومات الشخصية', help:'المساعدة والدعم', hours:'أوقات العمل' };
+export const screenNames: Record<string,string> = { care:'اختيار وجهة الرعاية', subscribe:'اشتراك المساعد الذكي', featured:'الظهور المميّز', wallet:'المحفظة', home:'الرئيسية', clinics:'المصحات', clinic:'مصحة الحياة', doctor:'الطبيب', confirm:'تأكيد الموعد', appointments:'مواعيدي', prescriptions:'الوصفات الطبية', reminders:'التذكيرات', profile:'الملف الشخصي', family:'إضافة فرد من العائلة', welcome:'مرحباً بك', queue:'طابور العيادة', account:'حسابي', settings:'الإعدادات', information:'المعلومات الشخصية', help:'المساعدة والدعم', hours:'أوقات العمل' };
 export function pageHead(screen: string, doctor = false) { const title = `${screenNames[screen] || 'الرئيسية'} | مواعيدي${doctor ? ' للأطباء' : ''}`; const description = doctor ? 'مواعيدي للأطباء — المواعيد والعيادات وطابور المرضى في مكان واحد.' : 'مواعيدي — اكتشف المصحات والأطباء في ليبيا واحجز دورك بكل راحة.'; return { meta: [{title}, {name:'description',content:description},{property:'og:title',content:title},{property:'og:description',content:description},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}] }; }
 export const patients = [ {name:'أحمد محمد علي',time:'9:00 ص',type:'كشف أولي',confirmed:true}, {name:'فاطمة سالم',time:'9:30 ص',type:'متابعة',confirmed:true}, {name:'محمد عبد السلام',time:'10:00 ص',type:'كشف أولي',confirmed:false}, {name:'سارة محمود',time:'10:30 ص',type:'متابعة',confirmed:true}, {name:'علي المبروك',time:'11:00 ص',type:'كشف أولي',confirmed:false}, {name:'مريم أحمد',time:'11:30 ص',type:'متابعة',confirmed:true}, {name:'خالد عمر',time:'12:00 م',type:'كشف أولي',confirmed:false}, {name:'هند حسن',time:'12:30 م',type:'متابعة',confirmed:true} ];
+
+export type Plan={id:string;name:string;price:string;period:string;until:string;tag?:string;note?:string};
+export type Doctor={id:string;name:string;specialty:string;clinicId:string;rating:string;reviews:number;photo?:string;featured?:boolean;me?:boolean};
+export const doctors:Doctor[]=[
+ {id:'ghariani',name:'د. أحمد الغرياني',specialty:'الباطنة والقلب',clinicId:'hayat',rating:'4.8',reviews:120,photo:doctorPhoto,me:true},
+ {id:'warfalli',name:'د. سالم الورفلي',specialty:'الباطنة والقلب',clinicId:'hayat',rating:'4.6',reviews:74},
+ {id:'muna',name:'د. منى الككلي',specialty:'طب عام',clinicId:'hayat',rating:'4.7',reviews:88,featured:true},
+ {id:'tarek',name:'د. طارق الزوي',specialty:'طب عام',clinicId:'hayat',rating:'4.5',reviews:51},
+ {id:'laila',name:'د. ليلى بن علي',specialty:'طب الأطفال',clinicId:'noor',rating:'4.9',reviews:132,featured:true},
+ {id:'huda',name:'د. هدى الشريف',specialty:'طب الأطفال',clinicId:'noor',rating:'4.6',reviews:63},
+ {id:'amal',name:'د. أمل الفيتوري',specialty:'النساء والولادة',clinicId:'noor',rating:'4.8',reviews:97},
+ {id:'yousef',name:'د. يوسف القماطي',specialty:'طب الأسنان',clinicId:'smile',rating:'4.9',reviews:84,featured:true},
+ {id:'nada',name:'د. ندى المصراتي',specialty:'طب الأسنان',clinicId:'smile',rating:'4.7',reviews:40},
+];
