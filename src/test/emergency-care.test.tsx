@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { CareGuide } from '@/components/mawaidi/care-guide';
 
@@ -12,7 +12,7 @@ describe('Automatic emergency screen', () => {
  async function submit() {
   fireEvent.change(screen.getByLabelText('ما الذي يقلقك صحياً؟'), { target: { value: 'ألم شديد في الصدر مع صعوبة في التنفس' } });
   fireEvent.click(screen.getByRole('checkbox'));
-  fireEvent.click(screen.getByRole('button', { name: 'اقتراح التخصص والمصحة' }));
+  await act(async () => { fireEvent.click(screen.getByRole('button', { name: 'اقتراح التخصص والمصحة' })); });
  }
  it('replaces the form, focuses urgent guidance and resets without resending', async () => {
   call.mockResolvedValue({ ok: true, recommendation });
