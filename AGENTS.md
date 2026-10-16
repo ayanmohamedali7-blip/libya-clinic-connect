@@ -17,3 +17,4 @@
 
 - Care navigation uses a validated public POST server function and server-only AI Gateway Responses SDK call; descriptions are processed on explicit consent and not saved in app data.
 - Constrain care recommendations to the demo clinic catalog and suppress clinic booking suggestions for emergency or insufficient-information outcomes to avoid unsafe routing.
+- Render emergency care as a dedicated in-place screen when the care result is emergency; focus its heading and replace the form so urgent guidance is immediately visible without storing health data in URLs.
